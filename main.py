@@ -1,4 +1,4 @@
 import matlib
 
-a  = matlib.suma(4, 3)
+a  = matlib.division(4, 0)
 7 == a
