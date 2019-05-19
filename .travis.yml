@@ -1,9 +1,11 @@
+#Distribución requerida por Python 3.7 en adelante
+dist: xenial
 # Definición del lenguaje que se usará
 language: python
 # Definición de la versión del lenguaje que se usará
 python:
-  - "3.5"
   - "3.6"
+  - "3.7-dev"
 branches:
   only:
     - dev
