@@ -2,7 +2,6 @@
 language: python
 # Definición de la versión del lenguaje que se usará
 python:
-  - "3.3"
   - "3.5"
   - "3.6"
 # Instalación de requerimientos
@@ -10,4 +9,4 @@ install:
   - pip install -r requeriments.txt
 # Comando para ejecutar el test
 script:
-  - pytest
+  - python main.py
