@@ -1,13 +1,36 @@
-import Dependencies.matlib as matlib
-import csv
 
-with open('./Data/nacimientos.csv', 'r') as csv_file:
-    csv_reader = csv.DictReader(csv_file)
-    line_count = 0
-    for row in csv_reader:
-        if line_count == 0:
-            print(f'Column names are {", ".join(row)}')
-            line_count += 1
-        print(f'\t{row["granja"]} had {row["partos"]} parts, and were born {row["nacidos_vivos"]} pigs.')
-        line_count += 1
-    print(f'Processed {line_count} lines.')
+archivo = open('./Data/nacimientos.txt', mode='r', encoding='UTF-8')
+data = archivo.readline()
+data = data.split("'], ['")
+aux = []
+for i in data:
+    if i[0] == ' ':
+        i = i[1:]
+    i = i.replace("[['", '')
+    i = i.replace("']]", '')
+    i = i.replace("' ", "'")
+    i = i.split("', '")
+    aux.append(i)
+archivo.close
+archivo = open('./Data/cabecera.txt', mode='r', encoding='UTF-8')
+cabecera = archivo.readline()
+cabecera = cabecera.replace("['", '')
+cabecera = cabecera.replace("']", '')
+cabecera = cabecera.split("', '")
+archivo.close()
+archivo = open('./Data/seleccion.txt', mode='r', encoding='UTF-8')
+seleccion = archivo.readline()
+seleccion = seleccion.replace("['", '')
+seleccion = seleccion.replace("']", '')
+seleccion = seleccion.split("', '")
+archivo.close()
+
+final = []
+for i in aux:
+    final.append([])
+for i in seleccion:
+    for j in range(len(cabecera)):
+        if i == cabecera[j]:
+            for k in range(len(aux)):
+                final[k].append(aux[k][j])
+print(final)
