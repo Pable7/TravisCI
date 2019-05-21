@@ -1,8 +1,9 @@
 import Dependencies.matlib as matlib
-import csv
 
 def test_suma():
-    archivo = open('./Data/nacimientos.csv', 'r')
-    print(archivo)
-    suma = matlib.porcentaje(matlib.division(1, 3), 1)
-    assert suma == 33.33
+    suma = matlib.suma(2, 3)
+    assert suma == 4
+
+def test_div():
+    division = matlib.division(2, 0)
+    assert division == 1

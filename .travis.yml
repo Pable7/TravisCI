@@ -14,4 +14,4 @@ install:
   - pip install -r requeriments.txt
 # Comando para ejecutar el test
 script:
-  - python main.py
+  - pytest
